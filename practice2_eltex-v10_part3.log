@@ -1,0 +1,20 @@
+$ git init
+Initialized empty Git repository in /root/practice2-eltex-v10/.git/
+$ git add README.md
+$ git commit -m Initial commit: добавлен README.md
+[main (root-commit) bf396cd] Initial commit: добавлен README.md
+ 1 file changed, 3 insertions(+)
+ create mode 100644 README.md
+$ git branch -M main
+$ git remote add origin https://github.com/MYP3UJIKA111/practice2-eltex-v10.git
+$ git status
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	practice2_eltex-v10_part3.log
+
+nothing added to commit but untracked files present (use "git add" to track)
+$ git push -u origin main
+To https://github.com/MYP3UJIKA111/practice2-eltex-v10.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.

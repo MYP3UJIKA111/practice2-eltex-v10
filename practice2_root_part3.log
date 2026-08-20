@@ -1,0 +1,65 @@
+$ mkdir -p module1/task1
+$ mkdir module1/task2
+$ mkdir module1/task3
+$ ls -la module1/
+total 20
+drwxr-xr-x 5 root root 4096 Aug 20 08:37 .
+drwxr-xr-x 4 root root 4096 Aug 20 08:36 ..
+drwxr-xr-x 2 root root 4096 Aug 20 08:36 task1
+drwxr-xr-x 2 root root 4096 Aug 20 08:37 task2
+drwxr-xr-x 2 root root 4096 Aug 20 08:37 task3
+$ scp -r eltex-v10@217.71.138.1:~/eltex-v10_part.log module1/task1/
+kex_exchange_identification: read: Connection reset by peer
+Connection reset by 217.71.138.1 port 22
+scp: Connection closed
+$ scp -P 44556 eltex-v10@217.71.138.1:~/eltex-v10_part.log module1/task1/
+$ scp -P 44556 -o StrictHostKeyChecking=no eltex-v10@217.71.138.1:~/eltex-v10_part.log module1/task1/
+$ ls -la module1/task1/
+total 8
+drwxr-xr-x 2 root root 4096 Aug 20 08:36 .
+drwxr-xr-x 5 root root 4096 Aug 20 08:37 ..
+$ scp -P 44556 -o StrictHostKeyChecking=no eltex-v10@217.71.138.1:~/eltex-v10_part3.log module1/task2/
+$ scp -P 44556 -o StrictHostKeyChecking=no eltex-v10@217.71.138.1:~/eltex-v10_part3_gt20M.log module1/task3/
+$ scp -P 44556 -o StrictHostKeyChecking=no eltex-v10@217.71.138.1:~/report_part1.txt module1/task1/
+$ mv /tmp/eltex-v10_part.log module1/task1/
+$ mv /tmp/report_part1.txt module1/task1/
+$ mv /tmp/eltex-v10_part3.log module1/task2/
+$ ls -la module1/task1/ module1/task2/ module1/task3/
+module1/task1/:
+total 20
+drwxr-xr-x 2 root root 4096 Aug 20 08:47 .
+drwxr-xr-x 5 root root 4096 Aug 20 08:37 ..
+-rw-r--r-- 1 root root 4917 Aug 20 08:45 eltex-v10_part.log
+-rw-r--r-- 1 root root  138 Aug 20 08:45 report_part1.txt
+
+module1/task2/:
+total 16
+drwxr-xr-x 2 root root 4096 Aug 20 08:47 .
+drwxr-xr-x 5 root root 4096 Aug 20 08:37 ..
+-rw-r--r-- 1 root root 6955 Aug 20 08:46 eltex-v10_part3.log
+
+module1/task3/:
+total 8
+drwxr-xr-x 2 root root 4096 Aug 20 08:37 .
+drwxr-xr-x 5 root root 4096 Aug 20 08:37 ..
+$ mv /tmp/eltex-v10_part3_gt20M.log module1/task3/
+$ ls -la module1/task1/ module1/task2/ module1/task3/
+module1/task1/:
+total 20
+drwxr-xr-x 2 root root 4096 Aug 20 08:47 .
+drwxr-xr-x 5 root root 4096 Aug 20 08:37 ..
+-rw-r--r-- 1 root root 4917 Aug 20 08:45 eltex-v10_part.log
+-rw-r--r-- 1 root root  138 Aug 20 08:45 report_part1.txt
+
+module1/task2/:
+total 16
+drwxr-xr-x 2 root root 4096 Aug 20 08:47 .
+drwxr-xr-x 5 root root 4096 Aug 20 08:37 ..
+-rw-r--r-- 1 root root 6955 Aug 20 08:46 eltex-v10_part3.log
+
+module1/task3/:
+total 12
+drwxr-xr-x 2 root root 4096 Aug 20 08:49 .
+drwxr-xr-x 5 root root 4096 Aug 20 08:37 ..
+-rw-r--r-- 1 root root 2206 Aug 20 08:49 eltex-v10_part3_gt20M.log
+$ git add .
